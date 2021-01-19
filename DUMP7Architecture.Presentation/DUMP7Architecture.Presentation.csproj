@@ -12,4 +12,13 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DUMP7Architecture.Data\DUMP7Architecture.Data.csproj" />
+    <ProjectReference Include="..\DUMP7Architecture.Domain\DUMP7Architecture.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

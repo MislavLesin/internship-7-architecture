@@ -8,4 +8,8 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DUMP7Architecture.Data\DUMP7Architecture.Data.csproj" />
+  </ItemGroup>
+
 </Project>

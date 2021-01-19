@@ -6,7 +6,7 @@ namespace DUMP7Architecture.Presentation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
