@@ -25,11 +25,11 @@ namespace DUMP7Architecture.Presentation.Actions.InvoiceActions
         {
             Console.Clear();
             var invoicesList = new List<InvoiceModel>();
-            var invoiceModel = new InvoiceModel();
-
             var invoices = _invoiceRepository.GetAllInvoices();
+
             foreach(var invoice in invoices)
             {
+                var invoiceModel = new InvoiceModel();
                 invoiceModel.Id = invoice.Id;
                 invoiceModel.DateOfPutchase = invoice.DateOfPurchase;
                 invoiceModel.Employe = invoice.Employe;
@@ -37,6 +37,8 @@ namespace DUMP7Architecture.Presentation.Actions.InvoiceActions
                 invoiceModel.ModelSubscriptionInvoices = _invoiceRepository.GetSubscriptionsFromInvoice(invoice.Id);
                 invoicesList.Add(invoiceModel);
             }
+            Console.WriteLine($"There are {invoicesList.Count} invoices");
+            Console.ReadKey();
             PrintInvoiceModels(invoicesList);
             Console.ReadKey();
 
@@ -48,8 +50,7 @@ namespace DUMP7Architecture.Presentation.Actions.InvoiceActions
             foreach(var inv in invoices)
             {
                 Console.WriteLine($"Id - {inv.Id} \n" +
-                    $"Date of purchase - {inv.DateOfPutchase} \n" +
-                    $"Emplyee that issued invoice - {inv.Employe.FirstName} {inv.Employe.LastName} \n");
+                    $"Date of purchase - {inv.DateOfPutchase}\n");
                 if(inv.ModelProductInvoices.Count != 0)
                 {
                     foreach(var product in inv.ModelProductInvoices)

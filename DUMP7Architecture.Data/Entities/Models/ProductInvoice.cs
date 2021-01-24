@@ -30,7 +30,7 @@ namespace DUMP7Architecture.Data.Entities.Models
             return ($"Product Name - {Name} \n" +
                 $"Product Description - {Description} \n" +
                 $"Product Type - {ProductType}\n" +
-                $"Price - {Price * NumberOfProducts} \n" +
+                $"Price for {NumberOfProducts} products - {Price * NumberOfProducts} \n" +
                 $"Number of products - {NumberOfProducts} \n" +
                 $"===============================================\n");
         }
