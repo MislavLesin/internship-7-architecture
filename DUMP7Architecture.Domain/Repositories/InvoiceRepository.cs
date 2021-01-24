@@ -22,6 +22,37 @@ namespace DUMP7Architecture.Domain.Repositories
             return DbContext.Employes.ToList();
         }
 
+        public ICollection<Category> GetAllCategories()
+        {
+            return DbContext.Categories.ToList();
+        }
+
+        public Category GetCategory(int categoryId)
+        {
+            var query = DbContext.Categories
+                .Where(c => c.Id == categoryId).FirstOrDefault();
+            return query;
+        }
+
+        public ICollection<Product> GetProductsByCategory(int categoryId)
+        {
+            var querry = DbContext.ProductCategories
+                .Where(pc => pc.CategoryId == categoryId)
+                .Join(DbContext.Products,
+                pc => pc.ProductId,
+                p => p.Id,
+                (pc, p) => new Product
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    ProductType = p.ProductType,
+                    ProductsInStock = p.ProductsInStock,
+                    Price = p.Price
+                }
+                );
+            return querry.ToList();
+        }
+
         public ICollection<Invoice> GetAllInvoices()
         {
             var querry = DbContext.Invoices.ToList();
