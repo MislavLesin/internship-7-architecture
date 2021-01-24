@@ -6,6 +6,7 @@
         NotFound,
         AlreadyExists,
         NoChanges,
-        ValidationError
+        ValidationError,
+        ListEmpty
     }
 }

@@ -17,8 +17,4 @@
     <ProjectReference Include="..\DUMP7Architecture.Domain\DUMP7Architecture.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
-
 </Project>

@@ -14,8 +14,6 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public string Name { get; set; }
 
-        public string Description { get; set; }
-
         public ProductsEnum ProductType { get; set; }
 
         public decimal Price { get; set; }
@@ -24,8 +22,31 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public ICollection<ProductCategory> ProductCategories { get; set; }
 
-       
 
+        public override string ToString()
+        {
+            if(ProductType == ProductsEnum.Service)
+            {
+                return ($"Id - {Id} \n" +
+               $"Name - {Name}\n" +
+               $"Type - {ProductType}\n" +
+               $"Price - {Price}\n" +
+               $"In Stock - {IsAvailable(ProductsInStock)}");
+            }
+            return ($"Id - {Id} \n" +
+                $"Name - {Name}\n" +
+                $"Type - {ProductType}\n" +
+                $"Price - {Price}\n" +
+                $"In Stock - {ProductsInStock}");
+            
+        }
+
+        private bool IsAvailable(int inStock)
+        {
+            if (inStock > 0)
+                return true;
+            return false;
+        }
 
     }
 }

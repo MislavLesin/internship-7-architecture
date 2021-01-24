@@ -19,5 +19,16 @@ namespace DUMP7Architecture.Data.Entities.Models
         public bool ServiceAvailable{ get; set; }
 
         public ICollection<SubscriptionCategory> SubscriptionCategories{ get; set; }
+
+        public override string ToString()
+        {
+            return ($"Id - {Id} \n" +
+                $"Name - {Name}\n" +
+                $"Description - {Description}\n" +
+                $"Price per day - {PricePerDay}\n" +
+                $"Service available - {ServiceAvailable}");
+        }
+
+       
     }
 }

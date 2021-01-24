@@ -20,6 +20,15 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public TimeSpan WorkShiftTime { get; set; }
 
+        public override string ToString()
+        {
+            return ($"Id - {Id} \n" +
+                $"First Name - {FirstName} \n" +
+                $"Last Name - {LastName} \n" +
+                $"Oib - {Oib} \n" +
+                $"Starts Work at - {WorkHoursStart} \n" +
+                $"Works for -{WorkShiftTime}");
+        }
 
     }
 }

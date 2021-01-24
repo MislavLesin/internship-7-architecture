@@ -19,6 +19,58 @@ namespace DUMP7Architecture.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.2");
 
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Electronics"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Car"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Home"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Garden"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Entertainment"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Kids"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Furniture"
+                        });
+                });
+
             modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.Customer", b =>
                 {
                     b.Property<int>("Id")
@@ -133,22 +185,103 @@ namespace DUMP7Architecture.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DateOfPurchase")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("EmployeId")
+                    b.Property<int>("EmployeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId");
-
                     b.HasIndex("EmployeId");
 
                     b.ToTable("Invoices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateOfPurchase = new DateTime(2020, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateOfPurchase = new DateTime(2020, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateOfPurchase = new DateTime(2020, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateOfPurchase = new DateTime(2020, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DateOfPurchase = new DateTime(2020, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DateOfPurchase = new DateTime(2020, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 3
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DateOfPurchase = new DateTime(2020, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DateOfPurchase = new DateTime(2020, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 2
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DateOfPurchase = new DateTime(2020, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DateOfPurchase = new DateTime(2020, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DateOfPurchase = new DateTime(2020, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 2
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DateOfPurchase = new DateTime(2020, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 3
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DateOfPurchase = new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 1
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DateOfPurchase = new DateTime(2020, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeId = 2
+                        });
                 });
 
             modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.Product", b =>
@@ -157,9 +290,6 @@ namespace DUMP7Architecture.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -181,7 +311,6 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "2 amp charger",
                             Name = "Phone Charger",
                             Price = 90m,
                             ProductType = 0,
@@ -190,7 +319,6 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 2,
-                            Description = "Silocone case Iphone 10x",
                             Name = "Phone Case",
                             Price = 60m,
                             ProductType = 0,
@@ -199,7 +327,6 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 3,
-                            Description = "Vanilla car shampoo, 0.5l",
                             Name = "Car Shampoo",
                             Price = 110m,
                             ProductType = 0,
@@ -208,7 +335,6 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 4,
-                            Description = "Kiss frisbee",
                             Name = "Frisbee",
                             Price = 30m,
                             ProductType = 0,
@@ -217,7 +343,6 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 5,
-                            Description = "10m",
                             Name = "Water Hose",
                             Price = 130m,
                             ProductType = 0,
@@ -226,7 +351,6 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 6,
-                            Description = "6L bucket Wooden",
                             Name = "Bucket",
                             Price = 160m,
                             ProductType = 0,
@@ -235,7 +359,6 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 7,
-                            Description = "30 min",
                             Name = "Massage",
                             Price = 65m,
                             ProductType = 1,
@@ -244,7 +367,6 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 8,
-                            Description = "Outside and inside",
                             Name = "Car Detailing",
                             Price = 90m,
                             ProductType = 1,
@@ -253,7 +375,6 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 9,
-                            Description = "Claccis bowl",
                             Name = "Flower Bowl",
                             Price = 40m,
                             ProductType = 0,
@@ -262,7 +383,6 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 10,
-                            Description = "Professional installation on WiFi",
                             Name = "House Wifi Upgrade",
                             Price = 300m,
                             ProductType = 1,
@@ -277,10 +397,17 @@ namespace DUMP7Architecture.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductCategories");
 
@@ -288,37 +415,74 @@ namespace DUMP7Architecture.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Electronics"
+                            CategoryId = 1,
+                            ProductId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Car"
+                            CategoryId = 1,
+                            ProductId = 2
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Home"
+                            CategoryId = 2,
+                            ProductId = 3
                         },
                         new
                         {
                             Id = 4,
-                            Name = "Garden"
+                            CategoryId = 5,
+                            ProductId = 4
                         },
                         new
                         {
                             Id = 5,
-                            Name = "Entertainment"
+                            CategoryId = 6,
+                            ProductId = 4
                         },
                         new
                         {
                             Id = 6,
-                            Name = "Kids"
+                            CategoryId = 3,
+                            ProductId = 5
                         },
                         new
                         {
                             Id = 7,
-                            Name = "Furniture"
+                            CategoryId = 4,
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 3,
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryId = 5,
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CategoryId = 2,
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CategoryId = 3,
+                            ProductId = 9
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CategoryId = 5,
+                            ProductId = 10
                         });
                 });
 
@@ -332,11 +496,14 @@ namespace DUMP7Architecture.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("InvoiceId")
+                    b.Property<int>("InvoiceId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberOfProducts")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -344,14 +511,229 @@ namespace DUMP7Architecture.Data.Migrations
                     b.Property<int>("ProductType")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductsInStock")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("InvoiceId");
 
                     b.ToTable("ProductInvoices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Kids frisbee",
+                            InvoiceId = 1,
+                            Name = "Frisbee",
+                            NumberOfProducts = 2,
+                            Price = 30m,
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Classic bowl",
+                            InvoiceId = 2,
+                            Name = "Flower Bowl",
+                            NumberOfProducts = 1,
+                            Price = 40m,
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "10m",
+                            InvoiceId = 3,
+                            Name = "Water Hose",
+                            NumberOfProducts = 1,
+                            Price = 130m,
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Silocone case Iphone 10x",
+                            InvoiceId = 4,
+                            Name = "Phone Case",
+                            NumberOfProducts = 1,
+                            Price = 60m,
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "10m",
+                            InvoiceId = 5,
+                            Name = "Water Hose",
+                            NumberOfProducts = 1,
+                            Price = 130m,
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "6L bucket Wooden",
+                            InvoiceId = 5,
+                            Name = "Bucket",
+                            NumberOfProducts = 1,
+                            Price = 160m,
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Description = "Vanilla car shampoo, 0.5l",
+                            InvoiceId = 6,
+                            Name = "Car Shampoo",
+                            NumberOfProducts = 1,
+                            Price = 110m,
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Description = "Silocone case Iphone 10x",
+                            InvoiceId = 7,
+                            Name = "Phone Case",
+                            NumberOfProducts = 1,
+                            Price = 60m,
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Description = "2 amp charger",
+                            InvoiceId = 8,
+                            Name = "Phone Charger",
+                            NumberOfProducts = 1,
+                            Price = 90m,
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Description = "Classic bowl",
+                            InvoiceId = 9,
+                            Name = "Flower Bowl",
+                            NumberOfProducts = 1,
+                            Price = 40m,
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Description = "Outside and inside",
+                            InvoiceId = 10,
+                            Name = "Car Detailing",
+                            NumberOfProducts = 1,
+                            Price = 90m,
+                            ProductType = 1
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Description = "Professional installation on WiFi",
+                            InvoiceId = 11,
+                            Name = "House Wifi Upgrade",
+                            NumberOfProducts = 1,
+                            Price = 300m,
+                            ProductType = 1
+                        });
+                });
+
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.ProductInvoiceCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductInvoiceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductInvoiceId");
+
+                    b.ToTable("ProductInvoiceCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 6,
+                            ProductInvoiceId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 4,
+                            ProductInvoiceId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 4,
+                            ProductInvoiceId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 1,
+                            ProductInvoiceId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 4,
+                            ProductInvoiceId = 5
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 4,
+                            ProductInvoiceId = 6
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryId = 2,
+                            ProductInvoiceId = 7
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 1,
+                            ProductInvoiceId = 8
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryId = 1,
+                            ProductInvoiceId = 9
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CategoryId = 3,
+                            ProductInvoiceId = 10
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CategoryId = 2,
+                            ProductInvoiceId = 11
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CategoryId = 3,
+                            ProductInvoiceId = 12
+                        });
                 });
 
             modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.Subscription", b =>
@@ -412,6 +794,54 @@ namespace DUMP7Architecture.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.SubscriptionCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SubscriptionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("SubscriptionId");
+
+                    b.ToTable("SubscriptionCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            SubscriptionId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 3,
+                            SubscriptionId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 3,
+                            SubscriptionId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 3,
+                            SubscriptionId = 4
+                        });
+                });
+
             modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.SubscriptionInvoice", b =>
                 {
                     b.Property<int>("Id")
@@ -419,10 +849,13 @@ namespace DUMP7Architecture.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("InvoiceId")
+                    b.Property<int>("InvoiceId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -439,158 +872,223 @@ namespace DUMP7Architecture.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CustomerId");
+
                     b.HasIndex("InvoiceId");
 
                     b.ToTable("SubscriptionInvoices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CustomerId = 1,
+                            Description = "Professional database maintenance",
+                            InvoiceId = 12,
+                            Name = "Database maintenance",
+                            PricePerDay = 30m,
+                            SubscriptionEndDate = new DateTime(2020, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SubscriptionStartDate = new DateTime(2020, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CustomerId = 2,
+                            Description = "Cleaning lady",
+                            InvoiceId = 13,
+                            Name = "Home maintenance",
+                            PricePerDay = 50m,
+                            SubscriptionEndDate = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SubscriptionStartDate = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CustomerId = 3,
+                            Description = "Daily Brekfast, Lunch and Dinner",
+                            InvoiceId = 14,
+                            Name = "Personal Cheff +",
+                            PricePerDay = 350m,
+                            SubscriptionEndDate = new DateTime(2020, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SubscriptionStartDate = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
-            modelBuilder.Entity("ProductCategoryProductInvoice", b =>
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.SubscriptionInvoiceCategory", b =>
                 {
-                    b.Property<int>("ProductCategoriesId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SroductInvoicesId")
+                    b.Property<int>("SubscriptionInvoiceId")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductCategoriesId", "SroductInvoicesId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("SroductInvoicesId");
+                    b.HasIndex("CategoryId");
 
-                    b.ToTable("ProductCategoryProductInvoice");
-                });
+                    b.HasIndex("SubscriptionInvoiceId");
 
-            modelBuilder.Entity("ProductCategorySubscription", b =>
-                {
-                    b.Property<int>("ProductCategoriesId")
-                        .HasColumnType("int");
+                    b.ToTable("SubscriptionInvoiceCategories");
 
-                    b.Property<int>("SubscriptionsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductCategoriesId", "SubscriptionsId");
-
-                    b.HasIndex("SubscriptionsId");
-
-                    b.ToTable("ProductCategorySubscription");
-                });
-
-            modelBuilder.Entity("ProductCategorySubscriptionInvoice", b =>
-                {
-                    b.Property<int>("ProductCategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubscriptionInvoicesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductCategoriesId", "SubscriptionInvoicesId");
-
-                    b.HasIndex("SubscriptionInvoicesId");
-
-                    b.ToTable("ProductCategorySubscriptionInvoice");
-                });
-
-            modelBuilder.Entity("ProductProductCategory", b =>
-                {
-                    b.Property<int>("ProductCategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductCategoriesId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("ProductProductCategory");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            SubscriptionInvoiceId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 1,
+                            SubscriptionInvoiceId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 1,
+                            SubscriptionInvoiceId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 5,
+                            SubscriptionInvoiceId = 3
+                        });
                 });
 
             modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.Invoice", b =>
                 {
-                    b.HasOne("DUMP7Architecture.Data.Entities.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId");
-
                     b.HasOne("DUMP7Architecture.Data.Entities.Models.Employe", "Employe")
                         .WithMany()
-                        .HasForeignKey("EmployeId");
-
-                    b.Navigation("Customer");
+                        .HasForeignKey("EmployeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Employe");
+                });
+
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.ProductCategory", b =>
+                {
+                    b.HasOne("DUMP7Architecture.Data.Entities.Models.Category", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DUMP7Architecture.Data.Entities.Models.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.ProductInvoice", b =>
                 {
                     b.HasOne("DUMP7Architecture.Data.Entities.Models.Invoice", null)
                         .WithMany("ProductInvoices")
-                        .HasForeignKey("InvoiceId");
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.ProductInvoiceCategory", b =>
+                {
+                    b.HasOne("DUMP7Architecture.Data.Entities.Models.Category", "Category")
+                        .WithMany("ProductInvoiceCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DUMP7Architecture.Data.Entities.Models.ProductInvoice", "ProductInvoice")
+                        .WithMany("ProductInvoiceCategories")
+                        .HasForeignKey("ProductInvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("ProductInvoice");
+                });
+
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.SubscriptionCategory", b =>
+                {
+                    b.HasOne("DUMP7Architecture.Data.Entities.Models.Category", "Category")
+                        .WithMany("SubscriptionCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DUMP7Architecture.Data.Entities.Models.Subscription", "Subscription")
+                        .WithMany("SubscriptionCategories")
+                        .HasForeignKey("SubscriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Subscription");
                 });
 
             modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.SubscriptionInvoice", b =>
                 {
+                    b.HasOne("DUMP7Architecture.Data.Entities.Models.Customer", "Customer")
+                        .WithMany("SubscriptionInvoices")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DUMP7Architecture.Data.Entities.Models.Invoice", null)
                         .WithMany("SubscriptionInvoices")
-                        .HasForeignKey("InvoiceId");
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
                 });
 
-            modelBuilder.Entity("ProductCategoryProductInvoice", b =>
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.SubscriptionInvoiceCategory", b =>
                 {
-                    b.HasOne("DUMP7Architecture.Data.Entities.Models.ProductCategory", null)
-                        .WithMany()
-                        .HasForeignKey("ProductCategoriesId")
+                    b.HasOne("DUMP7Architecture.Data.Entities.Models.Category", "Category")
+                        .WithMany("SubscriptionInvoiceCategories")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DUMP7Architecture.Data.Entities.Models.ProductInvoice", null)
-                        .WithMany()
-                        .HasForeignKey("SroductInvoicesId")
+                    b.HasOne("DUMP7Architecture.Data.Entities.Models.SubscriptionInvoice", "SubscriptionInvoice")
+                        .WithMany("SubscriptionInvoiceCategories")
+                        .HasForeignKey("SubscriptionInvoiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("SubscriptionInvoice");
                 });
 
-            modelBuilder.Entity("ProductCategorySubscription", b =>
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.Category", b =>
                 {
-                    b.HasOne("DUMP7Architecture.Data.Entities.Models.ProductCategory", null)
-                        .WithMany()
-                        .HasForeignKey("ProductCategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("ProductCategories");
 
-                    b.HasOne("DUMP7Architecture.Data.Entities.Models.Subscription", null)
-                        .WithMany()
-                        .HasForeignKey("SubscriptionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("ProductInvoiceCategories");
+
+                    b.Navigation("SubscriptionCategories");
+
+                    b.Navigation("SubscriptionInvoiceCategories");
                 });
 
-            modelBuilder.Entity("ProductCategorySubscriptionInvoice", b =>
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.Customer", b =>
                 {
-                    b.HasOne("DUMP7Architecture.Data.Entities.Models.ProductCategory", null)
-                        .WithMany()
-                        .HasForeignKey("ProductCategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DUMP7Architecture.Data.Entities.Models.SubscriptionInvoice", null)
-                        .WithMany()
-                        .HasForeignKey("SubscriptionInvoicesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProductProductCategory", b =>
-                {
-                    b.HasOne("DUMP7Architecture.Data.Entities.Models.ProductCategory", null)
-                        .WithMany()
-                        .HasForeignKey("ProductCategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DUMP7Architecture.Data.Entities.Models.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("SubscriptionInvoices");
                 });
 
             modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.Invoice", b =>
@@ -598,6 +1096,26 @@ namespace DUMP7Architecture.Data.Migrations
                     b.Navigation("ProductInvoices");
 
                     b.Navigation("SubscriptionInvoices");
+                });
+
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.Product", b =>
+                {
+                    b.Navigation("ProductCategories");
+                });
+
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.ProductInvoice", b =>
+                {
+                    b.Navigation("ProductInvoiceCategories");
+                });
+
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.Subscription", b =>
+                {
+                    b.Navigation("SubscriptionCategories");
+                });
+
+            modelBuilder.Entity("DUMP7Architecture.Data.Entities.Models.SubscriptionInvoice", b =>
+                {
+                    b.Navigation("SubscriptionInvoiceCategories");
                 });
 #pragma warning restore 612, 618
         }

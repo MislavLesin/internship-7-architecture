@@ -9,11 +9,12 @@ namespace DUMP7Architecture.Data.Entities.Models
 {
     public class SubscriptionCategory
     {
-        public int? SubscriptionId { get; set; }
+        public int Id { get; set; }
+        public int SubscriptionId { get; set; }
 
         public Subscription Subscription { get; set; }
 
-        public int? CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
     }
 }

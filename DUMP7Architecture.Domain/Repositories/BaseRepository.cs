@@ -18,7 +18,7 @@ namespace DUMP7Architecture.Domain.Repositories
         
         protected ResponseResultType SaveChanges()
         {
-            var hasChanges = DbContext.SaveChanges() > 0;       //provjerava jeli se unilo ista u bazu
+            var hasChanges = DbContext.SaveChanges() > 0;       
             if (hasChanges)
                 return ResponseResultType.Success;
 

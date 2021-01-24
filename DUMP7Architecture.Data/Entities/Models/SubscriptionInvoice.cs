@@ -20,6 +20,22 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public DateTime SubscriptionEndDate { get; set; }
 
-        public ICollection<Category> ProductCategories { get; set; }
+        public ICollection<SubscriptionInvoiceCategory> SubscriptionInvoiceCategories { get; set; }
+
+        public Customer Customer { get; set; }
+
+        public int CustomerId { get; set; }
+
+        public int InvoiceId { get; set; }
+
+        public override string ToString()
+        {
+            return ($"Subscription Name - {Name} \n" +
+                $"Subscription Description - {Description} \n" +
+                $"Subscription Start Date - {SubscriptionStartDate}\n" +
+                $"Subscription end Date - {SubscriptionEndDate}" +
+                $"Price - {PricePerDay} \n" +
+                $"===============================================\n");
+        }
     }
 }

@@ -19,8 +19,20 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public decimal Price { get; set; }
 
-        public int ProductsInStock { get; set; }
+        public int NumberOfProducts { get; set; }
+
+        public int InvoiceId { get; set; }
 
         public ICollection<ProductInvoiceCategory> ProductInvoiceCategories{ get; set; }
+
+        public override string ToString()
+        {
+            return ($"Product Name - {Name} \n" +
+                $"Product Description - {Description} \n" +
+                $"Product Type - {ProductType}\n" +
+                $"Price - {Price * NumberOfProducts} \n" +
+                $"Number of products - {NumberOfProducts} \n" +
+                $"===============================================\n");
+        }
     }
 }

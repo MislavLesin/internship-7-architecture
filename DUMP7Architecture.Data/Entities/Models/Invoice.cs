@@ -16,8 +16,10 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public ICollection<SubscriptionInvoice> SubscriptionInvoices { get; set; }
 
+        public int EmployeId { get; set; }
+
         public Employe Employe { get; set; }
 
-        public Customer Customer { get; set; }
+       
     }
 }

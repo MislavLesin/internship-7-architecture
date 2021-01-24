@@ -1,4 +1,6 @@
 ﻿using DUMP7Architecture.Presentation.Abstractions;
+using DUMP7Architecture.Presentation.Actions;
+using DUMP7Architecture.Presentation.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +11,16 @@ namespace DUMP7Architecture.Presentation.Factories
 {
     public static class MainMenuFactory
     {
-        /*
+        
         public static IList<IAction> GetMainMenuActions()
         {
             var actions = new List<IAction>
             {
-                
-                CustomerActionsFactory.GetCustomerParentAction(),
-                EmployeeActionsFactory.GetEmployeeParentAction(),
-                VehicleActionsFactory.GetVehicleParentActions(),
-                RentActionsFactory.GetRentParentAction(),
-                RegistrationFactory.GetRegistrationParentAction(),
-                ReportActionsFactory.GetReportsParentAction(),
+                CategoryActionsFactory.GetCategoryParentAction(),
+                ProductActionsFactory.GetProductParentAction(),
+                ReportActionsFactory.GetReportParentAction(),
+                SubscriptionsActionsFacotry.GetSubscriptionParentAction(),
+                InvoiceActionsFactory.GetInvoiceParentAction(),
                 new ExitMenuAction()
                 
             };
@@ -28,6 +28,6 @@ namespace DUMP7Architecture.Presentation.Factories
             actions.SetActionIndexes();
             return actions;
         }
-        */
+        
     }
 }

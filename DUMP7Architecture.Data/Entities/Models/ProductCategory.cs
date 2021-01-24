@@ -9,7 +9,7 @@ namespace DUMP7Architecture.Data.Entities.Models
 {
     public class ProductCategory
     {
-       
+        public int Id { get; set; }
         public int ProductId { get; set; }
         public Product Product { get; set; }
 
