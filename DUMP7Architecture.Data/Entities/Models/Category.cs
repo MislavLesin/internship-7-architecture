@@ -16,10 +16,6 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public ICollection<SubscriptionCategory> SubscriptionCategories { get; set; }
 
-        public ICollection<ProductInvoiceCategory> ProductInvoiceCategories{ get; set; }
-
-        public ICollection<SubscriptionInvoiceCategory> SubscriptionInvoiceCategories{ get; set; }
-
         public override string ToString()
         {
             return ($"Category Id - {Id} \n" +

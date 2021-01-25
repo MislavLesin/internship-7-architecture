@@ -37,10 +37,6 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public DbSet<SubscriptionCategory> SubscriptionCategories { get; set; }
 
-        public DbSet<ProductInvoiceCategory> ProductInvoiceCategories { get; set; }
-
-        public DbSet<SubscriptionInvoiceCategory> SubscriptionInvoiceCategories { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             DbSeed.Seed(modelBuilder);

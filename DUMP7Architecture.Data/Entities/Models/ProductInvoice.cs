@@ -13,8 +13,6 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public string Name { get; set; }
 
-        public string Description { get; set; }
-
         public ProductsEnum ProductType { get; set; }
 
         public decimal Price { get; set; }
@@ -23,12 +21,30 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public int InvoiceId { get; set; }
 
-        public ICollection<ProductInvoiceCategory> ProductInvoiceCategories{ get; set; }
+        public Invoice Invoice { get; set; }
 
+        public ProductInvoice()
+        {
+
+        }
+
+        public ProductInvoice(ProductInvoice pi)
+        {
+            Name = pi.Name;
+            ProductType = pi.ProductType;
+            Price = pi.Price;
+            NumberOfProducts = pi.NumberOfProducts;
+        }
+
+        public ProductInvoice(Product product)
+        {
+            Name = product.Name;
+            ProductType = product.ProductType;
+            Price = product.Price;
+        }
         public override string ToString()
         {
             return ($"Product Name - {Name} \n" +
-                $"Product Description - {Description} \n" +
                 $"Product Type - {ProductType}\n" +
                 $"Price for {NumberOfProducts} products - {Price * NumberOfProducts} \n" +
                 $"Number of products - {NumberOfProducts} \n" +

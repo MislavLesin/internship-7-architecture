@@ -18,6 +18,8 @@ namespace DUMP7Architecture.Presentation.Factories
             var invoiceActions = new List<IAction>
             {
                 new GetAllInvoices(RepositoryFactory.GetRepository<InvoiceRepository>()),
+                new AddNewInvoice(RepositoryFactory.GetRepository<InvoiceRepository>()),
+                new ViewInvoiceByYear(RepositoryFactory.GetRepository<InvoiceRepository>()),
                 new ExitMenuAction()
             };
             var invoiceParentActions = new InvoiceParentAction(invoiceActions);

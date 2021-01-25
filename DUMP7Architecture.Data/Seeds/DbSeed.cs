@@ -450,7 +450,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 1,
                         Name = "Frisbee",
-                        Description = "Kids frisbee",
                         Price = 30,
                         ProductType = Enums.ProductsEnum.Article,
                         NumberOfProducts = 2,
@@ -460,7 +459,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 2,
                         Name = "Flower Bowl",
-                        Description = "Classic bowl",
                         Price = 40,
                         ProductType = Enums.ProductsEnum.Article,
                         NumberOfProducts = 1,
@@ -470,7 +468,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 3,
                         Name = "Water Hose",
-                        Description = "10m",
                         Price = 130,
                         ProductType = Enums.ProductsEnum.Article,
                         NumberOfProducts = 1,
@@ -481,7 +478,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 4,
                         Name = "Phone Case",
-                        Description = "Silocone case Iphone 10x",
                         Price = 60,
                         ProductType = Enums.ProductsEnum.Article,
                         NumberOfProducts = 1,
@@ -492,7 +488,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 5,
                         Name = "Water Hose",
-                        Description = "10m",
                         Price = 130,
                         ProductType = Enums.ProductsEnum.Article,
                         NumberOfProducts = 1,
@@ -503,7 +498,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 6,
                         Name = "Bucket",
-                        Description = "6L bucket Wooden",
                         Price = 160,
                         ProductType = Enums.ProductsEnum.Article,
                         NumberOfProducts = 1,
@@ -514,7 +508,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 7,
                          Name = "Car Shampoo",
-                        Description = "Vanilla car shampoo, 0.5l",
                         Price = 110,
                         ProductType = Enums.ProductsEnum.Article,
                         NumberOfProducts = 1,
@@ -525,7 +518,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 8,
                         Name = "Phone Case",
-                        Description = "Silocone case Iphone 10x",
                         Price = 60,
                         ProductType = Enums.ProductsEnum.Article,
                         NumberOfProducts = 1,
@@ -536,7 +528,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 9,
                         Name = "Phone Charger",
-                        Description = "2 amp charger",
                         Price = 90,
                         ProductType = Enums.ProductsEnum.Article,
                         NumberOfProducts = 1,
@@ -547,7 +538,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 10,
                          Name = "Flower Bowl",
-                        Description = "Classic bowl",
                         Price = 40,
                         ProductType = Enums.ProductsEnum.Article,
                         NumberOfProducts = 1,
@@ -558,7 +548,6 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 11,
                         Name = "Car Detailing",
-                        Description = "Outside and inside",
                         Price = 90,
                         ProductType = Enums.ProductsEnum.Service,
                         NumberOfProducts = 1,
@@ -569,91 +558,12 @@ namespace DUMP7Architecture.Data.Seeds
                     {
                         Id = 12,
                         Name = "House Wifi Upgrade",
-                        Description = "Professional installation on WiFi",
                         Price = 300,
                         ProductType = Enums.ProductsEnum.Service,
                         NumberOfProducts = 1,
                         InvoiceId = 11
 
                     }
-                });
-
-            builder.Entity<ProductInvoiceCategory>()
-                .HasData(new List<ProductInvoiceCategory>
-                {
-                    new ProductInvoiceCategory
-                    {
-                        Id = 1,
-                        ProductInvoiceId = 1,
-                        CategoryId = 6
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 2,
-                        ProductInvoiceId = 2,
-                        CategoryId = 4
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 3,
-                        ProductInvoiceId = 3,
-                        CategoryId = 4
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 4,
-                        ProductInvoiceId = 4,
-                        CategoryId = 1
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 5,
-                        ProductInvoiceId = 5,
-                        CategoryId = 4
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 6,
-                        ProductInvoiceId = 6,
-                        CategoryId = 4
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 7,
-                        ProductInvoiceId = 7,
-                        CategoryId = 2
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 8,
-                        ProductInvoiceId = 8,
-                        CategoryId = 1
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 9,
-                        ProductInvoiceId = 9,
-                        CategoryId = 1
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 10,
-                        ProductInvoiceId = 10,
-                        CategoryId = 3
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 11,
-                        ProductInvoiceId = 11,
-                        CategoryId = 2
-                    },
-                    new ProductInvoiceCategory
-                    {
-                        Id = 12,
-                        ProductInvoiceId = 12,
-                        CategoryId = 3
-                    }
-
                 });
 
             builder.Entity<SubscriptionInvoice>()
@@ -694,35 +604,6 @@ namespace DUMP7Architecture.Data.Seeds
                         CustomerId = 3,
                         InvoiceId = 14
 
-                    }
-                });
-
-            builder.Entity<SubscriptionInvoiceCategory>()
-                .HasData(new List<SubscriptionInvoiceCategory>
-                {
-                    new SubscriptionInvoiceCategory
-                    {
-                        Id = 1,
-                        SubscriptionInvoiceId = 1,
-                        CategoryId = 1
-                    },
-                    new SubscriptionInvoiceCategory
-                    {
-                        Id = 2,
-                        SubscriptionInvoiceId = 2,
-                        CategoryId = 1
-                    },
-                    new SubscriptionInvoiceCategory
-                    {
-                        Id = 3,
-                        SubscriptionInvoiceId = 3,
-                        CategoryId = 1
-                    },
-                    new SubscriptionInvoiceCategory
-                    {
-                        Id = 4,
-                        SubscriptionInvoiceId = 3,
-                        CategoryId = 5
                     }
                 });
         }

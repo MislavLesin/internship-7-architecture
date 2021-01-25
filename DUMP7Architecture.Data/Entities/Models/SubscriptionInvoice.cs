@@ -20,22 +20,58 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public DateTime SubscriptionEndDate { get; set; }
 
-        public ICollection<SubscriptionInvoiceCategory> SubscriptionInvoiceCategories { get; set; }
-
         public Customer Customer { get; set; }
 
         public int CustomerId { get; set; }
 
         public int InvoiceId { get; set; }
 
+        public Invoice Invoice { get; set; }
+
+
+        public SubscriptionInvoice()
+        {
+
+        }
+
+        public SubscriptionInvoice(Subscription subscription)
+        {
+            Name = subscription.Name;
+            Description = subscription.Description;
+            PricePerDay = subscription.PricePerDay;
+        }
+        public SubscriptionInvoice(SubscriptionInvoice si)
+        {
+            Name = si.Name;
+            Description = si.Description;
+            PricePerDay = si.PricePerDay;
+            SubscriptionStartDate = si.SubscriptionStartDate;
+            SubscriptionEndDate = si.SubscriptionEndDate;
+            CustomerId = si.CustomerId;
+        }
+
         public override string ToString()
         {
-            return ($"Subscription Name - {Name} \n" +
-                $"Subscription Description - {Description} \n" +
-                $"Subscription Start Date - {SubscriptionStartDate}\n" +
-                $"Subscription end Date - {SubscriptionEndDate}" +
-                $"Price - {PricePerDay} \n" +
-                $"===============================================\n");
+            if(Customer != null)
+            {
+                return ($"Subscription Name - {Name} \n" +
+               $"Subscription Description - {Description} \n" +
+               $"Subscription Start Date - {SubscriptionStartDate}\n" +
+               $"Subscription end Date - {SubscriptionEndDate}\n" +
+               $"Price - {PricePerDay} \n" +
+               $"Customer - {Customer.FirstName} {Customer.LastName}" +
+               $"===============================================\n");
+            }
+            else
+            {
+                return ($"Subscription Name - {Name} \n" +
+              $"Subscription Description - {Description} \n" +
+              $"Subscription Start Date - {SubscriptionStartDate}\n" +
+              $"Subscription end Date - {SubscriptionEndDate}\n" +
+              $"Price - {PricePerDay } \n" +
+              $"===============================================\n");
+            }
+           
         }
     }
 }

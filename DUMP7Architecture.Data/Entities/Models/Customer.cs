@@ -19,6 +19,10 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public ICollection<SubscriptionInvoice> SubscriptionInvoices { get; set; }
 
-
+        public override string ToString()
+        {
+            return ($"Id - {Id}\n" +
+                $"Name - {FirstName} {LastName}\n");
+        }
     }
 }

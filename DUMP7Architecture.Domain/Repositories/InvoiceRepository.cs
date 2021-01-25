@@ -17,6 +17,35 @@ namespace DUMP7Architecture.Domain.Repositories
         {
         }
 
+       
+
+        public ResponseResultType SaveNewFullInvoice(InvoiceModel model)
+        {
+            var invoice = new Invoice();
+            invoice.DateOfPurchase = DateTime.Now;
+            invoice.EmployeId = model.Employe.Id;
+            DbContext.Invoices.Add(invoice);
+            SaveChanges();
+
+            foreach(var prInvoice in model.ModelProductInvoices)
+            {
+                var newProductInvocie = new ProductInvoice(prInvoice);
+                newProductInvocie.InvoiceId = invoice.Id;
+                DbContext.ProductInvoices.Add(newProductInvocie);
+
+            }
+
+            foreach(var suInvoice in model.ModelSubscriptionInvoices)
+            {
+                var newSubscriptionInvoice = new SubscriptionInvoice(suInvoice);
+                newSubscriptionInvoice.InvoiceId = invoice.Id;
+                DbContext.SubscriptionInvoices.Add(newSubscriptionInvoice);
+            }
+
+            return SaveChanges();
+
+        }
+
         public ICollection<Employe> GetAllEmplyees()
         {
             return DbContext.Employes.ToList();
@@ -34,6 +63,32 @@ namespace DUMP7Architecture.Domain.Repositories
             return query;
         }
 
+        public ICollection<Subscription> GestSubscriptionsByCategory(int categoryId)
+        {
+            var querry = DbContext.SubscriptionCategories
+                .Where(c => c.CategoryId == categoryId)
+                .Join(DbContext.Subscriptions,
+                c => c.SubscriptionId,
+                s => s.Id,
+                (c, s) => new Subscription
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    Description = s.Description,
+                    ServiceAvailable = s.ServiceAvailable,
+                    PricePerDay = s.PricePerDay,
+                });
+            return querry.ToList();
+        }
+        public ResponseResultType SaveNewCustomer(Customer customer)
+        {
+            DbContext.Customers.Add(customer);
+            return SaveChanges();
+        }
+        public ICollection<Customer> GetAllCustomers()
+        {
+            return DbContext.Customers.ToList();
+        }
         public ICollection<Product> GetProductsByCategory(int categoryId)
         {
             var querry = DbContext.ProductCategories

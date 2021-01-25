@@ -17,9 +17,15 @@ namespace DUMP7Architecture.Domain.Models
 
         public Customer Customer { get; set; }
 
-        public ICollection<ProductInvoice> ModelProductInvoices { get; set; }
+        public List<ProductInvoice> ModelProductInvoices { get; set; }
 
-        public ICollection<SubscriptionInvoice> ModelSubscriptionInvoices { get; set; }
+        public List<SubscriptionInvoice> ModelSubscriptionInvoices { get; set; }
+
+        public InvoiceModel()
+        {
+            ModelProductInvoices = new List<ProductInvoice>();
+            ModelSubscriptionInvoices = new List<SubscriptionInvoice>();
+        }
 
     }
 }

@@ -34,5 +34,10 @@ namespace DUMP7Architecture.Presentation.Helpers
                 Console.WriteLine(cat.ToString());
             }
         }
+        public static void PrintCustomers(ICollection<Customer> customers)
+        {
+            foreach(var customer in customers)
+                Console.WriteLine($"{customer.ToString()}\n");
+        }
     }
 }

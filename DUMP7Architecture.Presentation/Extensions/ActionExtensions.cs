@@ -9,7 +9,7 @@ namespace DUMP7Architecture.Presentation.Extensions
 {
     public static class ActionExtensions
     {
-        public static void PrintActionsAndCall(this IList<IAction> actions) //radi ovog 'this' svi Ilist<Iaction> imaju metodu PrintActionsAndCall
+        public static void PrintActionsAndCall(this IList<IAction> actions) 
         {
             var exitActionSelected = false;
             do
