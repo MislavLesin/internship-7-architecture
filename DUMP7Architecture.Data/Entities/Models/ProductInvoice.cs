@@ -30,6 +30,7 @@ namespace DUMP7Architecture.Data.Entities.Models
 
         public ProductInvoice(ProductInvoice pi)
         {
+            Id = pi.Id;
             Name = pi.Name;
             ProductType = pi.ProductType;
             Price = pi.Price;

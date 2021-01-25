@@ -17,7 +17,12 @@ namespace DUMP7Architecture.Domain.Repositories
         {
         }
 
-       
+       public void AlterProductStock(int productId, int number)
+        {
+            var product = DbContext.Products.Where(pr => pr.Id == productId).FirstOrDefault();
+            product.ProductsInStock -= number;
+            SaveChanges();
+        }
 
         public ResponseResultType SaveNewFullInvoice(InvoiceModel model)
         {

@@ -36,7 +36,7 @@ namespace DUMP7Architecture.Presentation.Actions.InvoiceActions
             var emplyes = _invoiceRepository.GetAllEmplyees();
             foreach (var emplye in emplyes)
             {
-                Console.WriteLine($"Name - {emplye.FirstName} {emplye.LastName} \n)" +
+                Console.WriteLine($"Name - {emplye.FirstName} {emplye.LastName} \n" +
                     $"Id - {emplye.Id}\n");
             }
             var isEntered = ReadHelpers.IntInputValidation(out var emplyeId);
@@ -73,7 +73,7 @@ namespace DUMP7Architecture.Presentation.Actions.InvoiceActions
         {
             while (true)
             {
-                Console.WriteLine("Type :\n1 for Articles / Services/\n");
+                Console.WriteLine("Type :\n1 for Articles / Services");
                 Console.WriteLine("2 for Subscriptions");
                 Console.WriteLine("0 to exit");
                 var decision = ReadHelpers.IntegerInputBetween(0, 2);
@@ -291,6 +291,7 @@ namespace DUMP7Architecture.Presentation.Actions.InvoiceActions
                     $"How many do you want ?");
                 var selectedProducts = ReadHelpers.IntegerInputBetween(1, numberOfAvailableProducts);
                 var pi = new ProductInvoice(newProduct);
+                _invoiceRepository.AlterProductStock(newProduct.Id, selectedProducts);
                 pi.NumberOfProducts = selectedProducts;
                 invoiceModel.ModelProductInvoices.Add(pi);
                 return true;
